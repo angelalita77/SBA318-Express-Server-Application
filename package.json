@@ -1,0 +1,29 @@
+{
+  "name": "318sba",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.mjs",
+    "dev": "nodeman server.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angelalita77/SBA318-Express-Server-Application.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/angelalita77/SBA318-Express-Server-Application/issues"
+  },
+  "homepage": "https://github.com/angelalita77/SBA318-Express-Server-Application#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
