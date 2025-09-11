@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.mjs",
-    "dev": "nodeman server.mjs"
+    "dev": "nodemon server.mjs"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
     "nodemon": "^3.1.10"
   },
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "morgan": "^1.10.1"
   }
 }

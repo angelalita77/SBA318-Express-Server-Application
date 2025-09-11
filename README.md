@@ -14,7 +14,7 @@ Interact with a self-made API through HTML forms.
 
 ### Requirements
 
-[ ] Create and use at least two pieces of custom middleware.
+[x] Create and use at least two pieces of custom middleware.
 
 [ ] Create and use error-handling middleware.
 
