@@ -18,6 +18,17 @@ app.get('/', (req, res) => {
     res.send('Testing');
 });
 
+app.post('/', (req, res) => {
+    res.send(`Test Post`)
+});
+
+app.put('/', (req, res) => {
+    res.send(`Test Put`)
+});
+
+app.delete('/', (req, res) => {
+    res.send(`Test delete`)
+})
 
 
 //Global Error Handling
