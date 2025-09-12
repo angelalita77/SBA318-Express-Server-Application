@@ -8,10 +8,24 @@ import timestamp from "./middleware/timestamp.mjs";
 
 
 
-// Setups
+// Env Setups
 const app = express();
 const PORT = 3000;
 
+//Build my View Engine
+app.engine("quo", (filePath, options, callback) => {
+    fs.readFile(filePath, (err, content) => {
+        if (err) return callback (err);
+
+        let rendered;
+
+        return callback(null, rendered);
+    })
+})
+
+// Setup views directory and register templte engine
+app.set('views', './views');
+app.set("view engine", "quo");
 
 
 // Middleware
