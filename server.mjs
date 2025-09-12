@@ -3,6 +3,7 @@ import express from "express";
 import globalErr from "./middleware/globalErr.mjs";
 import log from "./middleware/logging.mjs";
 import baseRoutes from "./routes/baseRoutes.mjs"
+import quotes from "./routes/quoteRoutes.mjs"
 import timestamp from "./middleware/timestamp.mjs";
 
 
@@ -17,9 +18,12 @@ const PORT = 3000;
 // custom log to return method, request URL and status code
 app.use(log);
 app.use(timestamp);
+app.use(express.json()); // for parsing JSON data
 
 //Routes
 app.use('/', baseRoutes);
+app.use('/quotes', quotes);
+app.use(express.urlencoded({extended: true}));
 
 
 

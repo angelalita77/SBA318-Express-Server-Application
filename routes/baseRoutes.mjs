@@ -7,7 +7,7 @@ const router = express();
 
 router.route('/')
     .get((req, res) => {
-        res.send('Testing');
+        res.json({msg:"Test GET"})
     })
     .post((req, res) => {
         res.send(`Test Post`)
