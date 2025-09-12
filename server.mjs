@@ -2,6 +2,9 @@
 import express from "express";
 import globalErr from "./middleware/globalErr.mjs";
 import log from "./middleware/logging.mjs";
+import baseRoutes from "./routes/baseRoutes.mjs"
+import timestamp from "./middleware/timestamp.mjs";
+
 
 
 // Setups
@@ -9,30 +12,22 @@ const app = express();
 const PORT = 3000;
 
 
+
 // Middleware
 // custom log to return method, request URL and status code
 app.use(log);
+app.use(timestamp);
 
 //Routes
-app.get('/', (req, res) => {
-    res.send('Testing');
-});
+app.use('/', baseRoutes);
 
-app.post('/', (req, res) => {
-    res.send(`Test Post`)
-});
 
-app.put('/', (req, res) => {
-    res.send(`Test Put`)
-});
 
-app.delete('/', (req, res) => {
-    res.send(`Test delete`)
-})
 
 
 //Global Error Handling
 app.use(globalErr);
+
 
 //Server Listener
 app.listen(3000, (req, res) => {

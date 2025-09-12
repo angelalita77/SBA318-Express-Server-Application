@@ -14,9 +14,9 @@ Interact with a self-made API through HTML forms.
 
 ### Requirements
 
-[x] Create and use at least two pieces of custom middleware.
+[ ] Create and use at least two pieces of custom middleware.
 
-[ ] Create and use error-handling middleware.
+[x] Create and use error-handling middleware.
 
 [ ] Use at least three different data categories (e.g., users, posts, or comments).
 
