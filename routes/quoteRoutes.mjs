@@ -16,7 +16,7 @@ router
     .route('/')
     // Create 
     // @route: POST /quotes
-    // @desc: create character route
+    // @desc: create NEW quote
     // @access: Public
     .post((req, res) => {
         let { character, show, quote } = req.body;
@@ -29,15 +29,33 @@ router
         }
 
         quotes.push(newDBEntry)
-        res.status(201).json({ msg: "New Entry Created!"});
+        res.status(201).json({ msg: "New Entry Created!" });
     })
+    // READ 
+    // @route: GET /quotes
+    // @desc: Get ALL quotes 
+    // @access: Public
     .get((req, res) => {
         res.json(quotes);
     })
 
 router.route('/:id')
+    // UPDATE 
+    // @route: PUT /quotes
+    // @desc: Update quote by id
+    // @access: Public
     .put((req, res) => {
-        res.send(`Test Put character routes: Param ${req.params.id}`)
+        let id = Number(req.params.id);
+        console.log(id);
+
+        quotes.splice(id, 1, {
+            id,
+            character: req.body.character,
+            show: req.body.show,
+            quote: req.body.quote
+        })
+
+        res.json({ msg: "Quote Updated", quote: req.body })
     })
     .delete((req, res) => {
         res.send(`Test Delete character routes: Param ${req.params.id}`)
