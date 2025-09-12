@@ -57,13 +57,27 @@ router.route('/:id')
 
         res.json({ msg: "Quote Updated", quote: req.body })
     })
-    .delete((req, res) => {
-         let id = Number(req.params.id);
+    .delete((req, res, next) => {
+        try{
+        let id = Number(req.params.id);
+        let deleted = quotes[id];
+        
+        if (!deleted) {
+            res.status(404).json({msg: "Quote not found"});
+        }
+        
+        quotes.splice(id, 1)
 
-         quotes.splice(id, 1)
+        res.json( {
+            msg: "Quote Deleted",
+            deletedQuote: deleted } )
 
-         res.json( {msg: "Quote Deleted"} )
-         res.send(req.body);
+        } catch (err) {
+            console.log("Delete Error: ", err);
+            res.status(500).json({msg: "Server Error:", error: err})
+        }
+         
+
     });
 
 export default router;
