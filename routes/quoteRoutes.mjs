@@ -29,7 +29,7 @@ router
         }
 
         quotes.push(newDBEntry)
-        res.status(201).res.json({ msg: "New Entry Created!"});
+        res.status(201).json({ msg: "New Entry Created!"});
     })
     .get((req, res) => {
         res.json(quotes);
