@@ -58,7 +58,12 @@ router.route('/:id')
         res.json({ msg: "Quote Updated", quote: req.body })
     })
     .delete((req, res) => {
-        res.send(`Test Delete character routes: Param ${req.params.id}`)
+         let id = Number(req.params.id);
+
+         quotes.splice(id, 1)
+
+         res.json( {msg: "Quote Deleted"} )
+         res.send(req.body);
     });
 
 export default router;
