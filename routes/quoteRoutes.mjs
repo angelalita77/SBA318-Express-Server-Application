@@ -39,9 +39,21 @@ router
         res.json(quotes);
     })
 
+
 router.route('/:id')
+    // READ by ID
+    // @route: GET /quotes/:id
+    // @desc: Get quotes by id
+    // @access: Public
+    .get((req, res) => {
+        const quote = quotes.find( (quote) => quote.id == req.params.id);
+
+        if (quote) res.json(quote)
+            else throw new Error(`❌📄 - Quote not found!`);
+    })
+
     // UPDATE 
-    // @route: PUT /quotes
+    // @route: PUT /quotes/:id
     // @desc: Update quote by id
     // @access: Public
     .put((req, res) => {
@@ -57,26 +69,31 @@ router.route('/:id')
 
         res.json({ msg: "Quote Updated", quote: req.body })
     })
+    // DELETE 
+    // @route: DELETE /quotes/:id
+    // @desc: Delete a quote by id
+    // @access: Public
     .delete((req, res, next) => {
-        try{
-        let id = Number(req.params.id);
-        let deleted = quotes[id];
-        
-        if (!deleted) {
-            res.status(404).json({msg: "Quote not found"});
-        }
-        
-        quotes.splice(id, 1)
+        try {
+            let id = Number(req.params.id);
+            let deleted = quotes[id];
 
-        res.json( {
-            msg: "Quote Deleted",
-            deletedQuote: deleted } )
+            if (!deleted) {
+                res.status(404).json({ msg: "Quote not found" });
+            }
+
+            quotes.splice(id, 1)
+
+            res.json({
+                msg: "Quote Deleted",
+                deletedQuote: deleted
+            })
 
         } catch (err) {
             console.log("Delete Error: ", err);
-            res.status(500).json({msg: "Server Error:", error: err})
+            res.status(500).json({ msg: "Server Error:", error: err })
         }
-         
+
 
     });
 

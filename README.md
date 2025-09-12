@@ -14,21 +14,22 @@ Interact with a self-made API through HTML forms.
 
 ### Requirements
 
-[ ] Create and use at least two pieces of custom middleware.
+[x] Create and use at least two pieces of custom middleware.
 
 [x] Create and use error-handling middleware.
 
-[ ] Use at least three different data categories (e.g., users, posts, or comments).
+[x] Use at least three different data categories (e.g., users, posts, or comments).
+    In this case (character, show, quote, img)
 
-[ ] Utilize reasonable data structuring practices.
+[x] Utilize reasonable data structuring practices.
 
 [ ] Create GET routes for all data that should be exposed to the client.
 
-[ ] Create POST routes for data, as appropriate. At least one data category should allow for client creation via a POST request.
+[x] Create POST routes for data, as appropriate. At least one data category should allow for client creation via a POST request.
 
 [ ] Create PATCH or PUT routes for data, as appropriate. At least one data category should allow for client manipulation via a PATCH or PUT request.
 
-[ ] Create DELETE routes for data, as appropriate. At least one data category should allow for client deletion via a DELETE request.
+[x] Create DELETE routes for data, as appropriate. At least one data category should allow for client deletion via a DELETE request.
 
 [ ] Include query parameters for data filtering, where appropriate. At least one data category should allow for additional filtering through the use of query parameters.
 Note: DO NOT use API keys; this makes it more difficult for instructors to grade finished projects efficiently.

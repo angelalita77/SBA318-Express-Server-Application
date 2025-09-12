@@ -19,11 +19,13 @@ const PORT = 3000;
 app.use(log);
 app.use(timestamp);
 app.use(express.json()); // for parsing JSON data
+app.use(express.urlencoded({extended: true}));
 
 //Routes
 app.use('/', baseRoutes);
 app.use('/quotes', quotes);
-app.use(express.urlencoded({extended: true}));
+
+
 
 
 
