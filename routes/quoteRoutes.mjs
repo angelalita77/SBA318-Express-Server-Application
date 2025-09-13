@@ -55,8 +55,7 @@ router
                 show: {
                     id: show.id,
                     title: show.title,
-                    year: show.year,
-                    img: show.img
+                    year: show.year
                 }
             };
         })
@@ -95,8 +94,7 @@ router
                 show: {
                     id: show.id,
                     title: show.title,
-                    year: show.year,
-                    img: show.img
+                    year: show.year
                 }
             }
         
