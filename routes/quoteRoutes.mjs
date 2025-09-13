@@ -17,13 +17,13 @@ router
     // @desc: create NEW quote
     // @access: Public
     .post((req, res) => {
-        let { character, show, quote } = req.body;
+        let { character, quote  } = req.body;
 
-        let newDBEntry = {
+
+        let newDBEntryQuotes = {
             id: quotes.length,
             character,
-            show,
-            quote
+            quote,
         }
 
         quotes.push(newDBEntry)
@@ -115,7 +115,6 @@ router
         quotes.splice(id, 1, {
             id,
             character: req.body.character,
-            show: req.body.show,
             quote: req.body.quote
         })
 
