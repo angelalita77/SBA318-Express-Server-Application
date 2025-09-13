@@ -1,16 +1,14 @@
 import express from 'express';
+
+// Import data colletion
 import { quotes } from "../data/quotes.mjs"
+import { characters } from "../data/characters.mjs"
+import { shows } from "../data/shows.mjs"
 
 
 // creatae express instant and save in router (instead of app)
 const router = express();
 
-//Use this to test post new quote
-// {
-//     "character": "Kagami Hiiragi",
-//     "show": "Lucky Star",
-//     "quote": "Could you stop skipping the thinking process when you respond?"
-// }
 
 router
     .route('/')
@@ -33,24 +31,76 @@ router
     })
     // READ 
     // @route: GET /quotes
-    // @desc: Get ALL quotes 
+    // @desc: Get ALL quotes and character
     // @access: Public
     .get((req, res) => {
-        res.json(quotes);
-    })
+        // will look at each object withn the quotes array
+        // each quote quoteobject is passed through "quoteObj" parameter
+        const quote = quotes.map(quoteObj => {
+            // find if the character's ID in characters.mjs array = charID in quotes array, if so save to "character"
+            const character = characters.find(c => c.id === quoteObj.characterId);
+            // find if the show's ID in show.mjs = showID in character.mjs array, then save to "show"
+            const show = shows.find(s => s.id === character.showId);
+
+            //construct object to return with GET method
+            //should have all the information of the quote, character, show, and image
+            return {
+                id: quoteObj.id,
+                quote: quoteObj.quote,
+                character: {
+                    id: character.id,
+                    name: character.name,
+                    img: character.img
+                },
+                show: {
+                    id: show.id,
+                    title: show.title,
+                    year: show.year,
+                    img: show.img
+                }
+            };
+        })
+        res.json(quote);
+    });
 
 
-router.route('/:id')
+router
+    .route('/:id')
     // READ by ID
     // @route: GET /quotes/:id
     // @desc: Get quotes by id
     // @access: Public
     .get((req, res) => {
-        const quote = quotes.find( (quote) => quote.id == req.params.id);
+        const quote = quotes.find((quote) => quote.id == req.params.id);
 
-        if (quote) res.json(quote)
-            else throw new Error(`❌📄 - Quote not found!`);
-    })
+        if (!quote) 
+         throw new Error(`❌📄 - Quote not found!`);
+
+        // find if the character's ID in characters.mjs array = charID in quotes array, if so save to "character"
+        const character = characters.find(c => c.id === quote.characterId);
+        // find if the show's ID in show.mjs = showID in character.mjs array, then save to "show"
+        const show = shows.find(s => s.id === character.showId);
+
+        return {
+                id: quote.id,
+                quote: quote.quote,
+                character: {
+                    id: character.id,
+                    name: character.name,
+                    img: character.img
+                },
+                show: {
+                    id: show.id,
+                    title: show.title,
+                    year: show.year,
+                    img: show.img
+                }
+            };
+             res.json(quote);
+        })
+       
+
+
 
     // UPDATE 
     // @route: PUT /quotes/:id
