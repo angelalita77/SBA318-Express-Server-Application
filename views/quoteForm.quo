@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>#title#</title>
+    <meta charset="UTF-8" />
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+  </head>
+  <body>
+    <h1>#title#</h1>
+    <br/><br/>
+    <form action="/user" method="POST">
+        <label>
+        Name: 
+            <input name="name" type="text" placeholder="Name..." />
+        </label>
+        <input type="submit" />
+    </form>
+  </body>
+</html>
