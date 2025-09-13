@@ -70,18 +70,21 @@ router
     // @route: GET /quotes/:id
     // @desc: Get quotes by id
     // @access: Public
-    .get((req, res) => {
+    .get((req, res, next) => {
         const quote = quotes.find((quote) => quote.id == req.params.id);
-
-        if (!quote) 
+       
+        
+        if (!quote){
          throw new Error(`❌📄 - Quote not found!`);
+         next();
+        }
 
         // find if the character's ID in characters.mjs array = charID in quotes array, if so save to "character"
         const character = characters.find(c => c.id === quote.characterId);
         // find if the show's ID in show.mjs = showID in character.mjs array, then save to "show"
         const show = shows.find(s => s.id === character.showId);
 
-        return {
+        const selectedQuote = {
                 id: quote.id,
                 quote: quote.quote,
                 character: {
@@ -95,8 +98,9 @@ router
                     year: show.year,
                     img: show.img
                 }
-            };
-             res.json(quote);
+            }
+        
+        res.json(selectedQuote);
         })
        
 
