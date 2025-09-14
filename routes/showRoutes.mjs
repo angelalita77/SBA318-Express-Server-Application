@@ -41,6 +41,10 @@ router
         res.json(shows);
     });
 
+    // READ (QUERY)
+    // @route: GET /shows/search?
+    // @desc: Query through shows for only "title" OR "year" (Not both)
+    // @access: Public
 router
     .route('/search')
     .get((req, res, next) => {
