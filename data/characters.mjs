@@ -16,5 +16,19 @@ export const characters = [
     name: "Spike Spiegel",
     showId: 1,
     img: "https://www.animeemanga.it/wp-content/uploads/2010/11/Spike-Spiegel.jpg"
+  },
+  {
+    id: 3,
+    name: "Armin Arlert",
+    showId: 1,
+    img: "https://i.pinimg.com/736x/cb/ac/a7/cbaca736be7f830d0fdcf2c890f1af32.jpg"
+  },
+  {
+    id: 4,
+    name: "Lain Iwakura",
+    showId: 1,
+    img: "https://www.giantfreakinrobot.com/wp-content/uploads/2023/08/serial-experiments-lain-1.png"
   }
 ];
+
+export default characters;

@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/angelalita77/SBA318-Express-Server-Application#readme",
   "devDependencies": {
+    "nodeman": "^1.1.2",
     "nodemon": "^3.1.10"
   },
   "dependencies": {

@@ -13,5 +13,17 @@ export const quotes = [
     id: 2,
     characterId: 2,
     quote: "Whatever happens, happens."
-  }
+  },
+  {
+    id: 3,
+    characterId: 3,
+    quote: "When people are faced with a situation they don’t understand, it’s easy for fear to take hold."
+  },
+  {
+    id: 4,
+    characterId: 2,
+    quote: "No matter where you go, everyone’s connected."
+  },
 ];
+
+export default quotes;

@@ -3,8 +3,8 @@ import express from 'express';
 // Import data colletion
 //import { quotes } from "../data/quotes.mjs"
 //import { characters } from "../data/characters.mjs"
-import { shows } from "../data/shows.mjs"
-
+//import { shows } from "../data/shows.mjs"
+import formQuotes from '../data/formQuotes.mjs';
 
 // creatae express instant and save in router (instead of app)
 const router = express();
@@ -13,7 +13,7 @@ const router = express();
 router
     .route('/')
     // // Create 
-    // // @route: POST /shows
+    // // @route: POST /form-quotes
     // // @desc: create NEW quote
     // // @access: Public
     .post((req, res) => {
@@ -31,7 +31,7 @@ router
         } else {
             throw new Error(`❌📄 - Insufficient data!`);
             next();
-        }
+        }   
     })
     // READ 
     // @route: GET /shows
@@ -39,44 +39,7 @@ router
     // @access: Public
     .get((req, res) => {
         res.json(shows);
-    });
-
-router
-    .route('/search')
-    .get((req, res, next) => {
-
-        // Title QUERY
-        // if title is queried only
-        if (req.query.title) {
-            // Get value of title in string
-            const titleFilter = req.query.title;
-            console.log(titleFilter);
-            // return objects with that title
-            const filteredShow = shows.filter(show =>
-                show.title === titleFilter)
-                res.json(filteredShow);
-        } else if (!filteredShow){
-            throw new Error ("Title Not Found");
-            next();
-        }
-        
-        // YEAR QUERY
-        if (req.query.year){
-            // if year is queried only
-            const yearFilter = parseInt(req.query.year);
-            console.log(yearFilter);
-            // return the ojects with that year
-            const filteredShow = shows.filter(show =>
-                show.year === yearFilter);
-                res.json(filteredShow);
-
-        } else if (!filteredShow){
-            throw new Error ("Year not found!");
-            next();
-        }
-
-    });
-
+    })
 
 router
     .route('/:id')

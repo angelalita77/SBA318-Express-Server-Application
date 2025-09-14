@@ -19,15 +19,15 @@ Interact with a self-made API through HTML forms.
 [x] Create and use error-handling middleware.
 
 [x] Use at least three different data categories (e.g., users, posts, or comments).
-    In this case (character, show, quote, img)
+    In this case (characters, shows, quotes)
 
 [x] Utilize reasonable data structuring practices.
 
-[ ] Create GET routes for all data that should be exposed to the client.
+[x] Create GET routes for all data that should be exposed to the client.
 
 [x] Create POST routes for data, as appropriate. At least one data category should allow for client creation via a POST request.
 
-[ ] Create PATCH or PUT routes for data, as appropriate. At least one data category should allow for client manipulation via a PATCH or PUT request.
+[x] Create PATCH or PUT routes for data, as appropriate. At least one data category should allow for client manipulation via a PATCH or PUT request.
 
 [x] Create DELETE routes for data, as appropriate. At least one data category should allow for client deletion via a DELETE request.
 
@@ -55,3 +55,4 @@ Note: A forced, arbitrary usage of this technique will not earn you any bonus cr
 
 [ ] Research and effectively use at least one third-party Node package for practical, sensible purposes.
 This cannot be a package that has been used in examples and lesson materials thus far. Step outside the box and be creative! 
+
