@@ -44,36 +44,35 @@ router
 router
     .route('/search')
     .get((req, res, next) => {
-
+        console.log(req.query.title);
+        console.log(req.query.year);
+        
         // Title QUERY
         // if title is queried only
         if (req.query.title) {
             // Get value of title in string
             const titleFilter = req.query.title;
-            console.log(titleFilter);
-            // return objects with that title
+            // filter through obj array and return only
+            // show objects that match the title.
             const filteredShow = shows.filter(show =>
                 show.title === titleFilter)
-                res.json(filteredShow);
-        } else if (!filteredShow){
-            throw new Error ("Title Not Found");
-            next();
+                // return objects with that title
+                res.json(filteredShow);  
         }
-        
+
         // YEAR QUERY
-        if (req.query.year){
-            // if year is queried only
-            const yearFilter = parseInt(req.query.year);
+        // if year is queried only
+        if (req.query.year) {
+            const yearFilter = Number(req.query.year);
             console.log(yearFilter);
-            // return the ojects with that year
+             // filter through obj array and return only
+            // show objects that match the year.
             const filteredShow = shows.filter(show =>
                 show.year === yearFilter);
-                res.json(filteredShow);
+            // return the ojects with that year
+            res.json(filteredShow);
+            }
 
-        } else if (!filteredShow){
-            throw new Error ("Year not found!");
-            next();
-        }
 
     });
 
