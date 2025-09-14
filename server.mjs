@@ -4,6 +4,7 @@ import globalErr from "./middleware/globalErr.mjs";
 import log from "./middleware/logging.mjs";
 import baseRoutes from "./routes/baseRoutes.mjs"
 import quotes from "./routes/quoteRoutes.mjs"
+import shows from "./routes/showRoutes.mjs"
 import timestamp from "./middleware/timestamp.mjs";
 
 
@@ -38,6 +39,7 @@ app.use(express.urlencoded({extended: true}));
 //Routes
 app.use('/', baseRoutes);
 app.use('/quotes', quotes);
+app.use('/shows', shows);
 
 
 
