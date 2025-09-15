@@ -9,23 +9,29 @@ import quotes from "./routes/quoteRoutes.mjs"
 import shows from "./routes/showRoutes.mjs"
 import characters from "./routes/characterRoutes.mjs"
 import formQuotes from "./routes/formQuoteRoutes.mjs";
-
+// Import FS
+import fs from 'fs';
 
 
 // Env Setups
 const app = express();
 const PORT = 3000;
 
-//Build my View Engine
+
+//Build my View Engine with .quo as the extension
 app.engine("quo", (filePath, options, callback) => {
-    fs.readFile(filePath, (err, content) => {
-        if (err) return callback (err);
+   fs.readFile(filePath, (err, content) => {
+    if(err) return callback(err);
 
-        let rendered;
+    const rendered = content
+    .toString()
+    .replaceAll("#title#", options.title)
+    .replace("#content#", options.content)
+    .replace("#img#", options.img)
 
-        return callback(null, rendered);
-    })
-})
+    return callback(null, rendered);
+});
+});
 
 // Setup views directory and register templte engine
 app.set('views', './views');
@@ -44,7 +50,16 @@ app.use('/', baseRoutes);
 app.use('/quotes', quotes);
 app.use('/shows', shows); 
 app.use('/characters', characters);
-app.use('/form-quotes', formQuotes)
+app.use('/form-quotes', formQuotes);
+app.get('/home', (req, res) => {
+
+    let option = {
+        title: "Anime Quotes",
+        content: "This website will show a few quotes from anime that are deep and sometimes funny.",
+        img: "https://img.fruugo.com/product/3/04/1598105043_max.jpg"
+    }
+    res.render('quoteForm', option)
+})
 
 
 

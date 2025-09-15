@@ -32,7 +32,7 @@ One of the data collections is for the web form.
 | quote          |
 | image          |
 
-<img src="./images/readme/dataCollection.jpg" alt="Alt Text" width="400">
+<img src="./images/readme/dataCollection.jpg" alt="Alt Text" width="600">
 
 ### API URLS and Method Capabilities
 Using Thunder Client you can do the following methods within each
@@ -44,6 +44,26 @@ of the URLs
 | /characters | N | Y | N | N | N     |
 | /show       | Y | Y | Y | Y | Y     |
 | /formQuotes | Y | Y | Y | Y | N     |
+               
+| VERB   | PATH                                | DESCRIPTION                             |
+|--------|-------------------------------------|-----------------------------------------|
+| GET    | /                                   | Home Page w/ Directory                  |
+| GET    | /quotes/                            | Index of quotes with characterID        |
+| GET    | /quotes/:id                         | Select quote by id                      |
+| DELETE | /quotes/:id                         | Delete quote by id.                     |
+| GET    | /characters                         | Index of characters with showID         |
+| GET    | /characters/:id                     | Select character by id                  |
+| GET    | /shows                              | Index of shows and year they were realised |
+| GET    | /shows/:id                          | Select show by id                       |
+| PUT    | /shows/:id                          | Update show object by id                |
+| DELETE | /shows/:id                          | Delete show by id                       |
+| GET    | /shows/search?                      | Querie show by title OR year (not by both)   |
+| GET    | /form-quotes                        | Index quote form data for form         |
+| GET    | /form-quotes/:id                    | Select quote fo        |
+| POST   | /form-quotes                        | Index quote form data for form         |
+| PUT    | /form-quotes/:id                    | Update quote form data by id           |
+| DELETE | /form-quotes/:id                    | Delete quote form data by id         |
+
 
 
 
