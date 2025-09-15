@@ -11,11 +11,15 @@ import characters from "./routes/characterRoutes.mjs"
 import formQuotes from "./routes/formQuoteRoutes.mjs";
 // Import FS
 import fs from 'fs';
+import path from "path";
+
 
 
 // Env Setups
 const app = express();
 const PORT = 3000;
+
+
 
 
 //Build my View Engine with .quo as the extension
@@ -38,12 +42,14 @@ app.set('views', './views');
 app.set("view engine", "quo");
 
 
+
 // Middleware
 // custom log to return method, request URL and status code
 app.use(log);
 app.use(timestamp);
 app.use(express.json()); // for parsing JSON data
 app.use(express.urlencoded({extended: true}));
+app.use(express.static(path.join(process.cwd(), "public")));
 
 //Routes
 app.use('/', baseRoutes);
