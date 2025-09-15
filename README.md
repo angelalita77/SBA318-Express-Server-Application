@@ -12,6 +12,40 @@ Use Express middleware.
 Use a template engine to render views with Express.
 Interact with a self-made API through HTML forms.
 
+## Program Description: Anime Quote RESTful API
+This API has anime quotes stored in four data collections. 
+
+Three of the data collections are in a structured organization.
+
+| shows.mjs  | characters.mjs | quotes.mjs    |
+| :--------- | :-----------   | :--------     |
+| id         | id             | id            |
+| title      | name           | characterId   |
+| year       | showId         | quote         |
+|            | img            |               |
+
+One of the data collections is for the web form.
+| formQuotes.mjs |
+|----------------|
+| id             |
+| title          |
+| name           |
+| quote          |
+| image          |
+
+### API URLS and Method Capabilities
+Using Thunder Client you can do the following methods within each
+of the URLs
+| URL         | C | R | U | D | Query |
+|-------------|---|---|---|---|-------|
+| /           | N | Y | N | N | N     |
+| /quotes     | N | Y | N | N | N     |
+| /characters | N | Y | N | N | N     |
+| /show       | Y | Y | Y | Y | Y     |
+| /formQuotes |   |   |   |   |       |
+
+
+
 ### Requirements
 
 [x] Create and use at least two pieces of custom middleware.
@@ -39,13 +73,13 @@ Note: This is not a test of design; it is a test of serving static files using E
 
 [ ] Include a form within a rendered view that allows for interaction with your RESTful API.
 
-[ ] Utilize reasonable code organization practices.
+[x] Utilize reasonable code organization practices.
 
-[ ] Ensure that the program runs without errors (comment out things that do not work, and explain your blockers - you can still receive partial credit).
+[x] Ensure that the program runs without errors (comment out things that do not work, and explain your blockers - you can still receive partial credit).
 
 [x] Commit frequently to the git repository.
 
-[ ] Include a README file that contains a description of your application.
+[x] Include a README file that contains a description of your application.
 
 [ ] Level of effort displayed in creativity, presentation, and user experience.
 
