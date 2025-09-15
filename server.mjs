@@ -3,11 +3,13 @@ import express from "express";
 import globalErr from "./middleware/globalErr.mjs";
 import log from "./middleware/logging.mjs";
 import timestamp from "./middleware/timestamp.mjs";
+//Import routes
 import baseRoutes from "./routes/baseRoutes.mjs"
-//Import data collection
 import quotes from "./routes/quoteRoutes.mjs"
 import shows from "./routes/showRoutes.mjs"
-import characters from "./routes/characterRouters.mjs"
+import characters from "./routes/characterRoutes.mjs"
+import formQuotes from "./routes/formQuoteRoutes.mjs";
+
 
 
 // Env Setups
@@ -42,6 +44,7 @@ app.use('/', baseRoutes);
 app.use('/quotes', quotes);
 app.use('/shows', shows); 
 app.use('/characters', characters);
+app.use('/form-quotes', formQuotes)
 
 
 

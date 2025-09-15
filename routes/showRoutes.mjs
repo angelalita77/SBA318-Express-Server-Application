@@ -1,14 +1,26 @@
+// quoteRoute you can do the following methods:
+// POST, GET, GET by ID, PUT by ID, DELETE by ID, QUERY (title or year)
+
 import express from 'express';
 
 // Import data colletion
-//import { quotes } from "../data/quotes.mjs"
-//import { characters } from "../data/characters.mjs"
 import { shows } from "../data/shows.mjs"
-
 
 // creatae express instant and save in router (instead of app)
 const router = express();
 
+// ------------ Sample Request JSON to test POST
+// Uncomment, copy paste the json below, then comment back again
+// {
+// "title": "Death Noote",
+// "year": 2006
+// }
+// ------------ Sample Request JSON to test PUT
+// Uncomment, copy paste the json below, then comment back again
+// {
+// "title": "Death Note",
+// "year": 2006
+// }
 
 router
     .route('/')

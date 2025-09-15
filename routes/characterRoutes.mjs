@@ -1,3 +1,6 @@
+// characterRoutes you can do the following methods:
+// GET, GET by ID,
+
 import express from  'express';
 // Import data colletion
 //import { quotes } from "../data/quotes.mjs"

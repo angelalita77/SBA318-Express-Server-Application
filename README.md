@@ -43,7 +43,7 @@ of the URLs
 | /quotes     | N | Y | N | N | N     |
 | /characters | N | Y | N | N | N     |
 | /show       | Y | Y | Y | Y | Y     |
-| /formQuotes |   |   |   |   |       |
+| /formQuotes | Y | Y | Y | Y | N     |
 
 
 

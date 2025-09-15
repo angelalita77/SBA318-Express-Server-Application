@@ -7,17 +7,7 @@ const router = express();
 
 router.route('/')
     .get((req, res) => {
-        res.json({msg:"Test GET"})
+        res.json({msg:"Hello There"})
     })
-    .post((req, res) => {
-        res.send(`Test Post`)
-    });
-router.route('/:id')
-    .put((req, res) => {
-        res.send(`Test Put Route: Param ${req.params.id}`)
-    })
-    .delete((req, res) => {
-        res.send(`Test Delete Route: Param ${req.params.id}`)
-    });
 
 export default router;
