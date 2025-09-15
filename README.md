@@ -12,11 +12,10 @@ Use Express middleware.
 Use a template engine to render views with Express.
 Interact with a self-made API through HTML forms.
 
-## Program Description: Anime Quote RESTful API
+## My Program Description: Anime Quote RESTful API
 This API has anime quotes stored in four data collections. 
 
 Three of the data collections are in a structured organization.
-
 | shows.mjs  | characters.mjs | quotes.mjs    |
 | :--------- | :-----------   | :--------     |
 | id         | id             | id            |
@@ -33,6 +32,8 @@ One of the data collections is for the web form.
 | quote          |
 | image          |
 
+<img src="./images/readme/dataCollection.jpg" alt="Alt Text" width="400">
+
 ### API URLS and Method Capabilities
 Using Thunder Client you can do the following methods within each
 of the URLs
@@ -43,6 +44,7 @@ of the URLs
 | /characters | N | Y | N | N | N     |
 | /show       | Y | Y | Y | Y | Y     |
 | /formQuotes |   |   |   |   |       |
+
 
 
 
