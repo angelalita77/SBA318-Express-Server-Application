@@ -66,6 +66,9 @@ app.get('/home', (req, res) => {
     }
     res.render('quoteForm', option)
 })
+app.post('/test', (req, res) => {
+    res.send("Ha-zaaa")
+})
 
 
 
