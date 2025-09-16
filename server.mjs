@@ -61,7 +61,7 @@ app.get('/home', (req, res) => {
 
     let option = {
         title: "Anime Quotes",
-        content: "This website will show a few quotes from anime that are deep and sometimes funny.",
+        content: "Enter new quotes here.",
         img: "https://img.fruugo.com/product/3/04/1598105043_max.jpg"
     }
     res.render('quoteForm', option)

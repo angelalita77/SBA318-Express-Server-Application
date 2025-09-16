@@ -8,8 +8,9 @@
 <body>
     <div class="container">
         <h1>#title#</h1>
+        
+        <img src="#img#" alt="anime picture of totoro" width="200"><br><br>
         <div>#content#</div>
-        <img src="#img#" alt="anime picture of totoro" width="400">
         <link rel="stylesheet" href="style.css">
 
         <form action="/test" method="POST">

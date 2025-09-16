@@ -90,7 +90,7 @@ of the URLs
 [x] Include query parameters for data filtering, where appropriate. At least one data category should allow for additional filtering through the use of query parameters.
 Note: DO NOT use API keys; this makes it more difficult for instructors to grade finished projects efficiently.
 
-[ ] Use simple CSS to style the rendered views.
+[x] Use simple CSS to style the rendered views.
 Note: This is not a test of design; it is a test of serving static files using Express. The CSS can be very simple.
 
 [ ] Include a form within a rendered view that allows for interaction with your RESTful API.
