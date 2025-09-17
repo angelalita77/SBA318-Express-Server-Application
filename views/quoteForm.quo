@@ -12,13 +12,13 @@
         <div>#content#</div>
         <link rel="stylesheet" href="style.css">
 
-        <form action="/test" method="POST">
+        <form action="/quotes" method="POST">
             <label for="title">Title:</label><br>
-            <input type="text" id="title" name="title" placeholder="Type name of anime"><br>
+            <input type="text" id="title" name="title" placeholder="Type name of anime" required><br>
             <label for="name">Name:</label><br>
-            <input type="text" id="name" name="name" placeholder="Type name of character"><br>
+            <input type="text" id="name" name="name" placeholder="Type name of character" required><br>
             <label for="quote">Quote:</label><br>
-            <textarea id="quote" name="quote" placeholder="Write quote here..."></textarea><br>
+            <textarea id="quote" name="quote" placeholder="Write quote here..." required></textarea><br>
             <label for="image">Image:</label><br>
             <input type="text" id="image" name="image"><br><br>
             <input class="button" type="submit" value="Submit">

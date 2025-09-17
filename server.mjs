@@ -13,12 +13,9 @@ import formQuotes from "./routes/formQuoteRoutes.mjs";
 import fs from 'fs';
 
 
-
 // Env Setups
 const app = express();
 const PORT = 3000;
-
-
 
 
 //Build my View Engine with .quo as the extension
@@ -53,7 +50,8 @@ app.use(log);
 app.use(timestamp);
 app.use(express.json()); // for parsing JSON data
 app.use(express.urlencoded({extended: true}));
-//app.use(express.static(path.join(process.cwd(), "public")));
+
+// Point the file to the CSS file within /styles directory
 app.use(express.static("./styles"))
 
 //Routes
@@ -73,11 +71,11 @@ app.get('/form', (req, res) => {
     }
     res.render('quoteForm', option)
 })
-app.post('/test', (req, res) => {
+app.post('/quotes', (req, res) => {
     const {title, name, quote, image} = req.body;
     console.log(req.body.image);
 
-    let option = {title, name, quote, image }
+    let option = { title, name, quote, image}
     console.log
     res.render("animequote", option)
 })
