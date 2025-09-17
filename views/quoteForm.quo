@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>#title#</title>
+    <title>#webTitle#</title>
 </head>
 <body>
     <div class="container">
-        <h1>#title#</h1>
-        
-        <img src="#img#" alt="anime picture of totoro" width="200"><br><br>
+        <h1>#webTitle#</h1>
+        <img src="#formImage#" alt="anime picture of totoro" width="200"><br><br>
         <div>#content#</div>
         <link rel="stylesheet" href="style.css">
 

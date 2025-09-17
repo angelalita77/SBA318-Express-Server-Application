@@ -11,7 +11,6 @@ import characters from "./routes/characterRoutes.mjs"
 import formQuotes from "./routes/formQuoteRoutes.mjs";
 // Import FS
 import fs from 'fs';
-import path from "path";
 
 
 
@@ -29,9 +28,14 @@ app.engine("quo", (filePath, options, callback) => {
 
     const rendered = content
     .toString()
-    .replaceAll("#title#", options.title)
+    .replaceAll("#webTitle#", options.webTitle)
     .replace("#content#", options.content)
-    .replace("#img#", options.img)
+    .replace("#formImage#", options.formImage)
+    .replaceAll("#title#", options.title)
+    .replace("#name#", options.name)
+    .replace("#quote#", options.quote)
+    .replace("#img#", options.image)
+
 
     return callback(null, rendered);
 });
@@ -49,7 +53,8 @@ app.use(log);
 app.use(timestamp);
 app.use(express.json()); // for parsing JSON data
 app.use(express.urlencoded({extended: true}));
-app.use(express.static(path.join(process.cwd(), "public")));
+//app.use(express.static(path.join(process.cwd(), "public")));
+app.use(express.static("./styles"))
 
 //Routes
 app.use('/', baseRoutes);
@@ -57,19 +62,31 @@ app.use('/quotes', quotes);
 app.use('/shows', shows); 
 app.use('/characters', characters);
 app.use('/form-quotes', formQuotes);
-app.get('/home', (req, res) => {
+
+// View Template
+app.get('/form', (req, res) => {
 
     let option = {
-        title: "Anime Quotes",
+        webTitle: "Anime Quotes",
         content: "Enter new quotes here.",
-        img: "https://img.fruugo.com/product/3/04/1598105043_max.jpg"
+        formImage: "https://img.fruugo.com/product/3/04/1598105043_max.jpg"
     }
     res.render('quoteForm', option)
 })
 app.post('/test', (req, res) => {
-    res.send("Ha-zaaa")
+    const {title, name, quote, image} = req.body;
+    console.log(req.body.image);
+
+    let option = {title, name, quote, image }
+    console.log
+    res.render("animequote", option)
 })
 
+//Form Entry Used for Test
+//DBZ
+//Goku
+//"FREEEZA!"
+//https://i.pinimg.com/736x/40/b8/b2/40b8b2320bf90b03fa02c33da39bb6e5.jpg
 
 
 //Global Error Handling
